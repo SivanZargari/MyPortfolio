@@ -1,60 +1,64 @@
-import React from "react";
-import { FaLinkedin, FaGithub, FaEnvelope, FaClipboard, FaWhatsapp } from "react-icons/fa";
+import React, { useRef } from "react";
+import emailjs from "emailjs-com";
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import { FaLinkedin, FaGithub, FaEnvelope, FaWhatsapp } from "react-icons/fa";
 
 function Contact() {
-  const email = "sivanzargari120@gmail.com";
-  const whatsappNumber = "972524541011"; // קוד מדינה 972 בלי אפס + מספר הטלפון שלך
+  const form = useRef();
 
-  const copyEmailToClipboard = () => {
-    navigator.clipboard.writeText(email);
-    alert("המייל הועתק ללוח!");
+  const isValidEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    const emailValue = form.current.reply_to.value;
+
+    if (!isValidEmail(emailValue)) {
+      toast.error("אנא הזיני כתובת אימייל תקינה.");
+      return;
+    }
+
+    emailjs.sendForm(
+      'service_tfuhv9g',
+      'template_80jkgh5',
+      form.current,
+      'N2fPQZQqbuTQiAg7r'
+    ).then(
+      () => {
+        toast.success("ההודעה נשלחה בהצלחה!");
+        form.current.reset();
+      },
+      (error) => {
+        console.error(error.text);
+        toast.error("אירעה שגיאה בשליחה. נסי שוב.");
+      }
+    );
   };
 
   return (
-    <div style={{ textAlign: "center", marginTop: 50 }}>
+    <section className="contact-section">
       <h2>Contact Me</h2>
-      <div
-        style={{
-          fontSize: 40,
-          display: "flex",
-          justifyContent: "center",
-          gap: 30,
-          alignItems: "center",
-        }}
-      >
-       <a href={`mailto:${email}`} title="Email" style={{ color: "inherit", fontSize: 40 }}>
-  <FaEnvelope />
-</a>
 
-        <a
-          href="https://www.linkedin.com/in/sivan-zargari/"
-          target="_blank"
-          rel="noreferrer"
-          title="LinkedIn"
-          style={{ color: "inherit" }}
-        >
-          <FaLinkedin />
-        </a>
-        <a
-          href="https://github.com/sivanzargari"
-          target="_blank"
-          rel="noreferrer"
-          title="GitHub"
-          style={{ color: "inherit" }}
-        >
-          <FaGithub />
-        </a>
-        <a
-          href={`https://wa.me/${whatsappNumber}`}
-          target="_blank"
-          rel="noreferrer"
-          title="WhatsApp"
-          style={{ color: "inherit" }}
-        >
-          <FaWhatsapp />
-        </a>
+      <form ref={form} onSubmit={sendEmail} className="contact-form">
+        <input type="text" name="from_name" placeholder="Your Name" required />
+        <input type="email" name="reply_to" placeholder="Your Email" required />
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" className="send-btn">Send Message</button>
+      </form>
+
+      <div className="social-icons">
+        <a href="mailto:sivanzargari120@gmail.com" title="Email"><FaEnvelope /></a>
+        <a href="https://www.linkedin.com/in/sivan-zargari/" target="_blank" rel="noreferrer" title="LinkedIn"><FaLinkedin /></a>
+        <a href="https://github.com/sivanzargari" target="_blank" rel="noreferrer" title="GitHub"><FaGithub /></a>
+        <a href="https://wa.me/972524541011" target="_blank" rel="noreferrer" title="WhatsApp"><FaWhatsapp /></a>
       </div>
-    </div>
+
+      <ToastContainer position="top-center" />
+    </section>
   );
 }
 
