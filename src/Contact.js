@@ -41,13 +41,13 @@ function Contact() {
 
   return (
     <section className="contact-section">
-      <h2>Contact Me</h2>
+      <h2>Contact</h2>
 
       <form ref={form} onSubmit={sendEmail} className="contact-form">
         <input type="text" name="from_name" placeholder="Your Name" required />
         <input type="email" name="reply_to" placeholder="Your Email" required />
         <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit" className="send-btn">Send Message</button>
+        <button type="submit" className="send-btn">HIRE ME</button>
       </form>
 
       <div className="social-icons">

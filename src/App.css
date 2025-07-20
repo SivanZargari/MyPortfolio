@@ -1,4 +1,3 @@
-/* === בסיס כללי === */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 * {
@@ -91,7 +90,7 @@ body {
 
 /* === אזורים כלליים === */
 section {
-  padding: 100px 20px;
+  padding: 60px 20px;
   text-align: center;
 }
 
@@ -104,36 +103,79 @@ section h2 {
 /* === אודות === */
 .about p {
   font-size: 18px;
-  max-width: 700px;
-  margin: 0 auto 30px;
+  max-width: 750px;
+  margin: 0 auto;
   color: #444;
+  line-height: 1.8;
+  text-align: left;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
 }
 
 /* === מיומנויות === */
+.skills-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.skills-section {
+  background-color: #fff;
+  padding: 24px 32px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  min-width: 320px;
+  max-width: 400px;
+  flex: 1 1 350px;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.skills-section:hover {
+  transform: translateY(-5px);
+}
+
+.skills-section h3 {
+  font-size: 22px;
+  color: #007bff;
+  margin-bottom: 16px;
+  font-weight: 700;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
+  gap: 14px;
   justify-content: center;
-  gap: 16px;
-  margin-top: 20px;
 }
 
 .skill-item {
-  background-color: #fff;
-  padding: 14px 20px;
+  background-color: #f9f9f9;
+  padding: 10px 16px;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  font-size: 16px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.04);
+  font-size: 15px;
   display: flex;
   align-items: center;
   gap: 10px;
-  transition: transform 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .skill-item:hover {
-  transform: translateY(-3px);
   background-color: #eef5ff;
+  transform: translateY(-2px);
 }
+
 
 /* === פרויקטים === */
 .projects-grid {
@@ -141,7 +183,6 @@ section h2 {
   flex-wrap: wrap;
   gap: 32px;
   justify-content: center;
-  margin-top: 40px;
 }
 
 .project-card {
@@ -149,17 +190,20 @@ section h2 {
   padding: 24px;
   width: 100%;
   max-width: 400px;
+  flex: 1 1 350px;
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   text-align: left;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .project-card h3 {
-  font-size: 22px;
+  font-size: 20px;
   margin-bottom: 12px;
   color: #222;
+  white-space: normal;
 }
 
 .project-card p {
@@ -190,17 +234,85 @@ section h2 {
   margin-bottom: 15px;
 }
 
-/* === תעודות === */
-.certificates ul {
-  list-style: none;
-  padding: 0;
-  margin-top: 20px;
+.project-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 6px 4px 0 0;
+  padding: 6px 12px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 123, 255, 0.2);
+  cursor: pointer;
+  line-height: 1.2;
+  max-width: 140px;
 }
 
-.certificates li {
-  margin: 12px 0;
-  font-size: 17px;
-  color: #444;
+
+.project-btn:hover {
+  background-color: #0056b3;
+  box-shadow:  0 4px 12px rgba(0, 86, 179, 0.6);
+  transform: translateY(-2px);
+}
+
+.details-btn {
+  background-color: #6c757d;
+  color: white;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  max-width: 140px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  margin-top: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.details-btn:hover {
+  background-color: #5a6268;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+
+/* === תעודות === */
+.certificates-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.certificate-card {
+  background-color: #fff;
+  padding: 24px 28px;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 300px;
+  max-width: 400px;
+  transition: transform 0.3s ease;
+}
+
+.certificate-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.certificate-icon {
+  font-size: 32px;
+  color: #007bff;
+  margin-top: 2px;
 }
 
 /* === טופס יצירת קשר === */
@@ -271,7 +383,7 @@ section h2 {
   }
 }
 
-/* --- סגנונות Contact Section --- */
+/* --- Contact Section --- */
 
 .contact-section {
   max-width: 450px;
@@ -279,7 +391,7 @@ section h2 {
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
   text-align: center;
 }
 
@@ -327,6 +439,7 @@ section h2 {
 .send-btn:hover {
   background-color: #3acbe9;
 }
+
 .social-icons {
   margin-top: 30px;
   display: flex;
@@ -369,20 +482,178 @@ section h2 {
 .hero-btn {
   padding: 12px 24px;
   font-size: 16px;
-  background-color: #007bff;
-  color: white;
   font-weight: 600;
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  min-width: 150px; /* כדי להשוות בין אורכי טקסט */
+  min-width: 150px;
   text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  user-select: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.hero-btn:hover {
+.hero-btn.dark {
   background-color: #0056b3;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 86, 179, 0.4);
+}
+
+.hero-btn.dark:hover {
+  background-color: #003d80;
   transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 20px rgba(0, 61, 128, 0.6);
+}
+
+.hero-btn.light {
+  background-color: #e7f0ff; 
+  color: #0056b3;
+  border: 2px solid #0056b3;
+  box-shadow: none;
+}
+
+.hero-btn.light:hover {
+  background-color: #c5dbff;
+  color: #003d80;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0, 86, 179, 0.3);
+}
+
+/* התאמות למובייל */
+@media (max-width: 480px) {
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .hero-btn {
+    width: 100%;
+    min-width: auto;
+    padding: 12px 0;
+  }
+}
+
+
+footer {
+  /* לא לרוחב מלא - יתאים לרוחב ה-App */
+  width: 100%;
+  background-color: #fafafa;
+  color: #555555;
+  font-size: 13px;
+  font-weight: 400;
+  text-align: center;
+  padding: 16px 20px;
+  border-top: 1px solid #ddd;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.03em;
+  user-select: none;
+}
+
+/* התאמות למסכים עד רוחב 768px (טאבלטים וניידים גדולים) */
+@media (max-width: 768px) {
+  .hero {
+    padding: 120px 20px 80px;
+  }
+  .hero-content {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .hero-text h1 {
+    font-size: 36px;
+    text-align: center;
+  }
+  .hero-text h2 {
+    font-size: 22px;
+    text-align: center;
+  }
+  .hero-buttons {
+    justify-content: center;
+  }
+  .hero-image img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .navbar {
+    gap: 20px;
+    padding: 12px 10px;
+  }
+  .nav-link {
+    font-size: 14px;
+  }
+
+  .skills-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .skills-section {
+    max-width: 90%;
+    min-width: auto;
+  }
+
+  .projects-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .project-card {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  section {
+    padding: 40px 10px;
+  }
+
+  .about p {
+    font-size: 16px;
+    max-width: 100%;
+    padding: 15px 10px;
+    text-align: center;
+  }
+
+  footer {
+    font-size: 12px;
+    padding: 12px 10px;
+  }
+}
+
+/* התאמות למסכים עד רוחב 480px (ניידים קטנים) */
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 28px;
+  }
+  .hero-text h2 {
+    font-size: 18px;
+  }
+  .hero-image img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .hero-btn {
+    width: 100%;
+    min-width: auto;
+    padding: 12px 0;
+  }
+
+  .navbar {
+    gap: 12px;
+    padding: 8px 8px;
+  }
+  .nav-link {
+    font-size: 12px;
+    padding: 6px 4px;
+  }
+
+  .skills-section {
+    padding: 20px;
+  }
+
+  .project-card {
+    padding: 20px;
+  }
 }
 
