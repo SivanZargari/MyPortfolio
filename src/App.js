@@ -69,6 +69,10 @@ function useFadeInOnScroll() {
 }
 
 function App() {
+   useEffect(() => {
+    document.title = "Sivan Zargari Portfolio";
+  }, []);
+  
   useFadeInOnScroll();
   return (
     <>
